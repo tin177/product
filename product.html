@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="categories.css">
     <link rel="stylesheet" href="product.css">
     <link rel="stylesheet" href="try.css">
     <link rel="stylesheet" href="modal.css">
@@ -63,7 +64,7 @@
 
       <nav class="navbar">
         <a href="home.html">Home</a>
-        <a href="product.html">Product</a>
+        <a href="product.html" id="all-products-link">Product</a>
         <a href="#about">About</a>
         <a href="home.html#footer">Info Hub</a>
 
@@ -123,32 +124,32 @@
   <section>
     <div class="category">
       <h2>Product Categories</h2>
-        <div class="ellipse">
-          <div class="items">
-            <img src="pictureneed/bed.png" alt="bedroom">
-            <p>Bedroom</p>
-          </div>
+<div class="ellipse">
+    <div class="Bedroom" data-category="bedroom">
+        <img src="pictureneed/bed.png" alt="bedroom">
+        <p>Bedroom</p>
+    </div>
 
-          <div>
-            <img src="pictureneed/livingroom.jpg" alt="livingroom">
-              <p>Living Room</p>
-          </div>
+    <div class="LivingRoom" data-category="livingroom">
+        <img src="pictureneed/livingroom.jpg" alt="livingroom">
+        <p>Living Room</p>
+    </div>
 
-          <div>
-            <img src="pictureneed/chair.jpg" alt="chair">
-            <p>Bathroom & Laundry</p>
-          </div>
+    <div class="BathroomLaundry" data-category="bathroom">  <!-- Changed from B&L -->
+        <img src="pictureneed/chair.jpg" alt="chair">
+        <p>Bathroom & Laundry</p>
+    </div>
 
-          <div>
-            <img src="pictureneed/kitchen.jpg" alt="kitchen">
-            <p>Kitchen</p>
-          </div>
+    <div class="Kitchen" data-category="kitchen">
+        <img src="pictureneed/kitchen.jpg" alt="kitchen">
+        <p>Kitchen</p>
+    </div>
 
-          <div>
-            <img src="pictureneed/table.jpg" alt="tables and chairs">
-            <p>Tables & Chairs</p>
-          </div>
-        </div>
+    <div class="TablesChairs" data-category="tables">  <!-- Changed from T&C -->
+        <img src="pictureneed/table.jpg" alt="tables and chairs">
+        <p>Tables & Chairs</p>
+    </div>
+</div>
     </div>
   </section>
 
@@ -156,90 +157,93 @@
     <div class="separate"></div>
   </section>
 
-  <section>
+<section>
     <div class="ItemsWrapper">
-    <div class="Item_container">
-      <div class="image-container">
-        <img src="pictureneed/chair2.jpg" alt="Modern Chair" class="product-img">
+        <!-- TABLES & CHAIRS ITEMS -->
+        <div class="Item_container" data-category="tables">
+            <div class="image-container">
+                <img src="pictureneed/chair2.jpg" alt="Modern Chair" class="product-img">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Chair</h3>
+                <p class="product-price">₱2,499.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
-      <div class="product-info">
-        <h3 class="product-name">Chair</h3>
-        <p class="product-price">₱2,499.00</p>
-        <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-    </div>
 
-        <div class="Item_container">
-      <div class="image-container">
-        <img src="pictureneed/bed.png" alt="Modern Chair" class="product-img">
+        <!-- BEDROOM ITEMS -->
+        <div class="Item_container" data-category="bedroom">
+            <div class="image-container">
+                <img src="pictureneed/bed.png" alt="Modern Chair" class="product-img">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Bed</h3>
+                <p class="product-price">₱9,499.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
-      <div class="product-info">
-        <h3 class="product-name">Bed</h3>
-        <p class="product-price">₱9,499.00</p>
-        <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-    </div>
 
-
-            <div class="Item_container">
-      <div class="image-container">
-        <img src="pictureneed/bed.png" alt="Modern Chair" class="product-img">
+        <!-- TABLES & CHAIRS ITEMS -->
+        <div class="Item_container" data-category="tables">
+            <div class="image-container">
+                <img src="pictureneed/bed.png" alt="Modern Chair" class="product-img">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Modern Comfort Chair</h3>
+                <p class="product-price">₱2,499.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
-      <div class="product-info">
-        <h3 class="product-name">Modern Comfort Chair</h3>
-        <p class="product-price">₱2,499.00</p>
-        <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-    </div>
-  
-                <div class="Item_container">
-      <div class="image-container">
-        <img src="pictureneed/table.jpg" alt="Modern Chair" class="product-img">
-        </div>
-      <div class="product-info">
-        <h3 class="product-name">Table</h3>
-        <p class="product-price">₱3,499.00</p>
-        <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-    </div>
-  
 
-      <div class="Item_container">
-      <div class="image-container">
-        <img src="pictureneed/chairr.jpg" alt="Modern Chair" class="product-img">
+        <!-- TABLES & CHAIRS ITEMS -->
+        <div class="Item_container" data-category="tables">
+            <div class="image-container">
+                <img src="pictureneed/table.jpg" alt="Modern Chair" class="product-img">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Table</h3>
+                <p class="product-price">₱3,499.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
-      <div class="product-info">
-        <h3 class="product-name">Comfort Chair</h3>
-        <p class="product-price">₱2,499.00</p>
-        <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-    </div>
 
-      <div class="Item_container">
-      <div class="image-container">
-        <img src="pictureneed/Jeager Dining Table 180cm (Walnut) .jpg" alt="Modern Chair" class="product-img">
+        <!-- TABLES & CHAIRS ITEMS -->
+        <div class="Item_container" data-category="tables">
+            <div class="image-container">
+                <img src="pictureneed/chairr.jpg" alt="Modern Chair" class="product-img">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Comfort Chair</h3>
+                <p class="product-price">₱2,499.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
-      <div class="product-info">
-        <h3 class="product-name">we</h3>
-        <p class="product-price">₱2,499.00</p>
-        <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-    </div>
-  
-          <div class="Item_container">
-      <div class="image-container">
-        <img src="pictureneed/toppic.png" alt="Modern Chair" class="product-img">
+
+        <!-- TABLES & CHAIRS ITEMS -->
+        <div class="Item_container" data-category="tables">
+            <div class="image-container">
+                <img src="pictureneed/Jeager Dining Table 180cm (Walnut).jpg" alt="Modern Chair" class="product-img">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Dining Table</h3>
+                <p class="product-price">₱2,499.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
         </div>
-      <div class="product-info">
-        <h3 class="product-name">TOTOO NA TO</h3>
-        <p class="product-price">₱2,499.00</p>
-        <button class="add-to-cart-btn">Add to Cart</button>
-      </div>
-    </div>
 
-
+        <!-- TABLES & CHAIRS ITEMS -->
+        <div class="Item_container" data-category="tables">
+            <div class="image-container">
+                <img src="pictureneed/toppic.png" alt="Modern Chair" class="product-img">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Side Table</h3>
+                <p class="product-price">₱2,499.00</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
 
       <!-- Cart Sidebar -->
     <div id="cart-sidebar" class="cart-sidebar">
@@ -284,6 +288,7 @@
         </footer>
 
   </div>
+  <script src="categories.js"></script>
   <script src="carousel.js"></script>
   <script src="script.js"></script>
 </body>

@@ -395,3 +395,50 @@ closeModal.addEventListener('click', closeProductModal);
 modalOverlay.addEventListener('click', closeProductModal);
 
 
+//SEARCH
+const searchInput = document.querySelector(".search-bar input");
+
+// Tracks the current shown category ("all" or specific)
+let currentCategory = "all";
+
+// Update category whenever you click a category button
+categoryButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        currentCategory = btn.dataset.category;
+    });
+});
+
+// When clicking ALL PRODUCTS
+allProductsLink.addEventListener("click", () => {
+    currentCategory = "all";
+});
+
+// SEARCH LOGIC
+searchInput.addEventListener("input", () => {
+    const keyword = searchInput.value.toLowerCase().trim();
+
+    items.forEach(item => {
+        const name = item.querySelector(".product-name").textContent.toLowerCase();
+        const itemCategory = item.dataset.category;
+
+        // check if item belongs to current category or all
+        const allowed =
+            currentCategory === "all" || itemCategory === currentCategory;
+
+        if (!allowed) {
+            item.style.display = "none";
+            return;
+        }
+
+        // if search box is empty -> show everything under current category
+        if (keyword === "") {
+            item.style.display = "flex";
+            return;
+        }
+
+        // filtering by name
+        item.style.display = name.includes(keyword) ? "flex" : "none";
+    });
+});
+
+
