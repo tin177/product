@@ -442,3 +442,107 @@ searchInput.addEventListener("input", () => {
 });
 
 
+
+// account_login
+function saveInfo(){
+  const form = document.getElementById('accountForm');
+  const data = Object.fromEntries(new FormData(form).entries());
+  if(!data.fullname || !data.email || !data.phone || !data.address){
+    alert('Please fill the required fields marked with *');
+    return;
+  }
+  localStorage.setItem('struktura_account', JSON.stringify(data));
+  alert('Account information saved locally.');
+}
+
+function resetForm(){
+  if(confirm('Reset all fields?')){
+    document.getElementById('accountForm').reset();
+  }
+}
+
+function logout(){
+  window.location.href = 'home.html';
+}
+
+window.addEventListener('DOMContentLoaded', ()=>{
+  const saved = localStorage.getItem('struktura_account');
+  if(saved){
+    const obj = JSON.parse(saved);
+    for(const k in obj){
+      const el = document.getElementById(k);
+      if(el) el.value = obj[k];
+    }
+  }
+});
+
+
+// browsing history
+// Recently Viewed Functionality
+let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+
+// Function to add an item to recently viewed
+function addToRecentlyViewed(product) {
+    // Remove if already exists to avoid duplicates
+    recentlyViewed = recentlyViewed.filter(item => item.img !== product.img);
+    // Add to the beginning
+    recentlyViewed.unshift(product);
+    localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+    renderRecentlyViewed();
+}
+
+// Function to render the recently viewed list
+function renderRecentlyViewed() {
+    const list = document.getElementById('recently-viewed-list');
+    list.innerHTML = '';
+    if (recentlyViewed.length === 0) {
+        list.innerHTML = '<p class="no-items">No recently viewed items.</p>';
+        return;
+    }
+    recentlyViewed.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'recently-viewed-item';
+        itemDiv.innerHTML = `
+            <img src="${item.img}" alt="${item.name}">
+            <div class="item-details">
+                <div class="item-name">${item.name}</div>
+                <div class="item-price">${item.price}</div>
+            </div>
+        `;
+        list.appendChild(itemDiv);
+    });
+}
+
+// Sidebar toggle functions
+function openRecentlyViewedSidebar() {
+    document.getElementById('recently-viewed-sidebar').classList.add('open');
+    document.getElementById('recently-viewed-overlay').classList.add('show');
+}
+
+function closeRecentlyViewedSidebar() {
+    document.getElementById('recently-viewed-sidebar').classList.remove('open');
+    document.getElementById('recently-viewed-overlay').classList.remove('show');
+}
+
+// Event listeners
+document.getElementById('recently-viewed-icon').addEventListener('click', openRecentlyViewedSidebar);
+document.getElementById('close-recently-viewed').addEventListener('click', closeRecentlyViewedSidebar);
+document.getElementById('recently-viewed-overlay').addEventListener('click', closeRecentlyViewedSidebar);
+
+// Track when a product modal is opened (by clicking the product image)
+document.querySelectorAll('.product-img').forEach(img => {
+    img.addEventListener('click', function() {
+        const container = this.closest('.Item_container');
+        const name = container.querySelector('.product-name').textContent;
+        const price = container.querySelector('.product-price').textContent;
+        const product = {
+            img: this.src,
+            name: name,
+            price: price
+        };
+        addToRecentlyViewed(product);
+    });
+});
+
+// Initial render on page load
+renderRecentlyViewed();

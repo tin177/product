@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shopping Account — Struktura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="account_login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <a href="home.html" class="home-link">
+      <i class="fa-solid fa-house home-icon"></i>
+    </a>
+    <h1>Shopping Account Information</h1>
+    <p>Provide your details for orders and delivery. All fields marked * are required.</p>
+    <button class="btn logout-btn" onclick="logout()">Log Out</button>
+  </header>
+
+  <div class="container">
+
+    <main class="card" role="main" aria-labelledby="pageTitle">
+
+      <form class="grid" id="accountForm" onsubmit="event.preventDefault(); saveInfo();">
+
+        <div class="full">
+          <label for="fullname">Full name *</label>
+          <input id="fullname" name="fullname" type="text" placeholder="Juan Dela Cruz" required>
+        </div>
+
+        <div>
+          <label for="email">Email address *</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+
+        <div>
+          <label for="phone">Contact number *</label>
+          <input id="phone" name="phone" type="tel" placeholder="+63 912 345 6789" required>
+        </div>
+
+        <div class="full">
+          <label for="address">Complete delivery address *</label>
+          <textarea id="address" name="address" placeholder="House no., Street, Barangay, City, Province, ZIP" required></textarea>
+        </div>
+
+        <div>
+          <label for="city">City / Municipality *</label>
+          <input id="city" name="city" type="text" placeholder="Binan" required>
+        </div>
+
+        <div>
+          <label for="province">Province *</label>
+          <input id="province" name="province" type="text" placeholder="Laguna" required>
+        </div>
+
+        <div>
+          <label for="zipcode">ZIP / Postal Code</label>
+          <input id="zipcode" name="zipcode" type="text" placeholder="4024">
+        </div>
+
+        <div>
+          <label for="birthdate">Birthdate</label>
+          <input id="birthdate" name="birthdate" type="date">
+        </div>
+
+        <div>
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="">Prefer not to say</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="full">
+          <label for="notes">Other notes (delivery instructions, landmarks)</label>
+          <textarea id="notes" name="notes" placeholder="E.g., leave at guardhouse; near SM City"></textarea>
+        </div>
+
+        <div class="actions full" role="group" aria-label="form actions">
+          <button type="button" class="btn secondary" onclick="resetForm()">Reset</button>
+          <button type="submit" class="btn save">Save information</button>
+        </div>
+      </form>
+
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 Struktura Furniture Shop | All Rights Reserved
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
