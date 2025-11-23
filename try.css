@@ -444,7 +444,7 @@
     display: block;
 }
 
-* Recently Viewed Sidebar */
+/* Recently Viewed Sidebar */ 
 .recently-viewed-sidebar {
     position: fixed;
     top: 115px;
